@@ -1,10 +1,12 @@
+import Layout from "../../Components/Layout"
+
 function SingnIn() {
 
   return (
     <>
-     <div className='bg-red-100'>
+     <Layout>
         SingnIn
-     </div>
+     </Layout>
     </>
   )
 }
