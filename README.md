@@ -1,2 +1,9 @@
 # ECommers
 Desarrollo de pruba simulando un ecommerce
+# se comienza por instalar vite
+--> npm create vite@latest
+# despues instalar tawil
+npm install -D tailwindcss postcss autoprefixer
+npm install tailwindcss @tailwindcss/vite
+# instalacion de react rauter dom
+
