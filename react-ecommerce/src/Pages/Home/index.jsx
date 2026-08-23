@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Layout from '../../Components/Layout'
 import Card from '../../Components/Card'
-import { data } from 'react-router-dom'
+import ProductDetail from '../../Components/ProductDetail'
 
 function Home() {
   const [items, setItems] = useState(null)
@@ -24,7 +24,7 @@ function Home() {
           items?.map(item => (<Card key={item.id} data={item}></Card>))
         }
         </div>
-        
+        <ProductDetail></ProductDetail>
      </Layout>
   )
 }

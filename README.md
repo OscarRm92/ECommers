@@ -11,3 +11,5 @@ npm install react-router-dom
 componete para navegar
 # context
 estado global de app
+# instalcion de iconos  https://heroicons.com/
+npm install @heroicons/react

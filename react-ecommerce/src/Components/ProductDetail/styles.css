@@ -1,0 +1,5 @@
+.product-detail{
+    width: 360px;
+    height: calc(100vh - 68px); /* lo del nadvar se debe quitar a lo alto del detail */
+    top: 68px;  /* lo del nadvar se debe bajar */
+}
