@@ -9,6 +9,11 @@ const CheckOutSideMenu = () => {
     const context = useContext(ShoppingCartContext)
     // console.log('Product show', context.productToShow); 
     // console.log('shopping cart', context.cartProducts) // valor del carrito de compras 
+
+    const handleDelete = (id) =>{
+        const filteredProducts = context.cartProducts.filter(product => product.id != id )
+        context.setCartProducts(filteredProducts)
+    }
  
     
     return(
@@ -32,6 +37,7 @@ const CheckOutSideMenu = () => {
                             title={product.title} 
                             imgUrl={product.images} 
                             price={product.price}
+                            handleDelete = {handleDelete}
                         >
                         </OrderCard>
                     ))
