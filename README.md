@@ -8,4 +8,6 @@ npm install tailwindcss @tailwindcss/vite
 # instalacion de react rauter dom
 npm install react-router-dom
 # navlink
-
+componete para navegar
+# context
+estado global de app

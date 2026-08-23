@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react"
-import Layout from "../../Components/Layout"
-import Card from "../../Components/Card"
-import { data } from "react-router-dom"
+import { useState, useEffect } from 'react'
+import Layout from '../../Components/Layout'
+import Card from '../../Components/Card'
+import { data } from 'react-router-dom'
 
 function Home() {
   const [items, setItems] = useState(null)
