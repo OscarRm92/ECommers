@@ -37,12 +37,12 @@ const CheckOutSideMenu = () => {
             className={`${context.isCheckOutSideMenu ? 'flex' : 'hidden'} checkout-side-menu flex-col fixed right-0 border border-black rounded-lg bg-white `}>
             <div className='flex justify-between items-center p-6'>
                 <h2 className='font-medium text-xl' >My Order</h2>
-                <dix>
+                <div>
                     <XMarkIcon 
                         className='h-6 w-6 text-black cursor-pointer'
                         onClick={() => context.clouseCheckOutSideMenu()} 
                     ></XMarkIcon>
-                </dix>
+                </div>
             </div>
             <div className='px-6 overflow-y-scroll flex-1'>
                 {
@@ -60,13 +60,13 @@ const CheckOutSideMenu = () => {
                 }
             </div>
             <div className='px-6 mb-6'>
-                <p className='flex justify-between items-center mb-2'>
+                <div className='flex justify-between items-center mb-2'>
                     <span className='font-light'>Total:</span>
                     <div className='flex items-center justify-between'>
                         <CurrencyDollarIcon className='h-6 w-6  text-black cursor-pointer micro'></CurrencyDollarIcon>
                         <span className='font-medium text-2xl'>{totalPrice(context.cartProducts)}</span>
                     </div>
-                </p>
+                </div>
                 <Link to='/my-orders/last'>
                     <button className='w-full bg-black py-3 text-white rounded-lg' onClick={() => {handleCheckout()}}>Checkout</button>
                 </Link>

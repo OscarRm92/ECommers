@@ -12,12 +12,12 @@ const ProductDetail = () => {
         className={`${context.isProductDetailOpen ? 'flex' : 'hidden'} product-detail flex-col fixed right-0 border border-black rounded-lg bg-white `}>
             <div className='flex justify-between items-center p-6'>
                 <h2 className='font-medium text-xl' >Datail</h2>
-                <dix>
+                <div>
                     <XMarkIcon 
                         className='h-6 w-6 text-black cursor-pointer'
                         onClick={() => context.clouseProductDetail()} 
                     ></XMarkIcon>
-                </dix>
+                </div>
             </div>
             <figure className='px-6'>
                     <img
