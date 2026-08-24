@@ -6,6 +6,8 @@ import { ShoppingCartContext } from '../../Context'
 
 function MyOrders() {
   const context = useContext(ShoppingCartContext)
+  console.log(context.order, new Date().toISOString);
+  
   
 
   return (
@@ -16,14 +18,15 @@ function MyOrders() {
       </div>
         
         {
-          context.order?.map((order, index) => {
-            <Link key={index} to={`/my-orders/${order.id}`}>
+          context.order?.map((order, index) => (
+            <Link key={index} to={`/my-orders/${index}`}>
               <OrdersCard 
+                date={order.date}
                 totalProducts={order.totalProducts} 
                 totalPrice={order.totalPrice} >
               </OrdersCard>
             </Link>
-          })
+          ))
         }        
      </Layout>
     </>
