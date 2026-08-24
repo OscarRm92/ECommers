@@ -20,6 +20,7 @@ const Navbar = () =>{
                 <li>
                     <NavLink 
                         to='/' 
+                        onClick={() => contex.setSearchByCategory()}
                         className={({isActive}) => isActive ? activeStyle : undefined }
                         >
                         All
@@ -28,6 +29,7 @@ const Navbar = () =>{
                 <li>
                     <NavLink 
                         to='/clothes'
+                        onClick={() => contex.setSearchByCategory('clothes')}
                         className={({isActive}) => isActive ? activeStyle : undefined }
                     >
                         Clothes
@@ -36,7 +38,8 @@ const Navbar = () =>{
                  <li>
                     <NavLink 
                         to='/electronics' 
-                          className={({isActive}) => isActive ? activeStyle : undefined }
+                        onClick={() => contex.setSearchByCategory('electronics')}
+                        className={({isActive}) => isActive ? activeStyle : undefined }
                         >
                         Electronics
                     </NavLink>   
@@ -44,6 +47,7 @@ const Navbar = () =>{
                 <li>
                     <NavLink 
                         to='/furnitures' 
+                        onClick={() => contex.setSearchByCategory('furnitures')}
                         className={({isActive}) => isActive ? activeStyle : undefined }
                         >
                         Furnitures
@@ -52,6 +56,7 @@ const Navbar = () =>{
                 <li>
                     <NavLink 
                         to='/toys'
+                        onClick={() => contex.setSearchByCategory('toys')}
                         className={({isActive}) => isActive ? activeStyle : undefined }
                         >
                         Toys
@@ -60,6 +65,7 @@ const Navbar = () =>{
                 <li>
                     <NavLink 
                         to='/others' 
+                        onClick={() => contex.setSearchByCategory('others')}
                         className={({isActive}) => isActive ? activeStyle : undefined }
                         >
                         Others
@@ -96,7 +102,7 @@ const Navbar = () =>{
                 </li>
                 <li className='flex items-center justify-between'>
                      <ShoppingBagIcon className='h-6 w-6 text-black'></ShoppingBagIcon>
-                     <div>{contex.count}</div>
+                     <div>{contex.cartProducts?.length}</div>
                 </li>
                
             </ul>

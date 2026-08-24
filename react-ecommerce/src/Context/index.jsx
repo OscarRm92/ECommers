@@ -59,21 +59,58 @@ export const ShoppingCartContextProvider = ({children}) => {
     const [searchByTitle, setSearchByTitle] = useState(null)
 
     /**
+     * Get Product by category
+     */
+    const [searchByCategory, setSearchByCategory] = useState(null)
+
+    /**
      * Funtion fot search items by filter
      * @param {Array} items 
      * @param {Array} searchByTitle 
      * @returns Array 
      */
     const filteredItemsByTitle = (items, searchByTitle) =>{
-        return items?.filter(item => item?.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+        return items?.filter(item => item?.title?.toLowerCase().includes(searchByTitle.toLowerCase()))
+    }
+
+    /**
+     * 
+     * @param {Array} items 
+     * @param {Array} searchByCategory 
+     * @returns Array
+     */
+    const filteredItemsByCategory = (items, searchByCategory) =>{
+        return items?.filter(item => item?.category?.name.toLowerCase().includes(searchByCategory.toLowerCase()))
+    }
+
+    const filterBy = (searchType, items,searchByTitle,searchByCategory) =>{
+        // console.log('filtrado',searchType, searchByTitle,searchByCategory );
+        
+        switch(searchType){
+            case 'BY_TITLE': 
+                return filteredItemsByTitle(items,searchByTitle)
+            break;
+            case 'BY_CATEGORY':
+                return filteredItemsByCategory(items,searchByCategory)
+            break;
+            case 'BY_TITLE_AND_CATEGORY':
+                return filteredItemsByCategory(items,searchByCategory).filter(item => item?.title?.toLowerCase().includes(searchByTitle.toLowerCase()))
+            default:
+                return items 
+            break;
+        }
+
     }
 
     useEffect(() => {
-      if(searchByTitle)
-        setfilteredItems(filteredItemsByTitle(items,searchByTitle))
-    },[items, searchByTitle] )
+        console.log('useeffect', searchByTitle, searchByCategory );
+        if(searchByTitle && searchByCategory) setfilteredItems(filterBy('BY_TITLE_AND_CATEGORY',items,searchByTitle,searchByCategory))
+        if(searchByTitle && !searchByCategory) setfilteredItems(filterBy('BY_TITLE',items,searchByTitle,searchByCategory))
+        if(!searchByTitle && searchByCategory) setfilteredItems(filterBy('BY_CATEGORY',items,searchByTitle,searchByCategory))
+        if(!searchByTitle && !searchByCategory) setfilteredItems(filterBy(null,items,searchByTitle,searchByCategory))
+    },[items, searchByTitle, searchByCategory] )
 
-    // console.log(filteredItems);
+    //  console.log(filteredItems?.length);
     
 
     return(
@@ -97,7 +134,9 @@ export const ShoppingCartContextProvider = ({children}) => {
             searchByTitle,
             setSearchByTitle,
             filteredItems,
-            setfilteredItems
+            setfilteredItems,
+            searchByCategory,
+            setSearchByCategory
         }}>
             {children}
         </ShoppingCartContext.Provider>
