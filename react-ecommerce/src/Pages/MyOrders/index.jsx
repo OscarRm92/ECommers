@@ -6,7 +6,7 @@ import { ShoppingCartContext } from '../../Context'
 
 function MyOrders() {
   const context = useContext(ShoppingCartContext)
-  console.log(context.order, new Date().toISOString);
+  // console.log(context.order, new Date().toISOString);
   
   
 

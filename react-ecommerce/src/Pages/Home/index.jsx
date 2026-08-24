@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { FaceFrownIcon } from '@heroicons/react/24/outline'
 import Layout from '../../Components/Layout'
 import Card from '../../Components/Card'
 import ProductDetail from '../../Components/ProductDetail'
@@ -6,7 +7,24 @@ import { ShoppingCartContext } from '../../Context'
 
 function Home() {
   const context = useContext(ShoppingCartContext)
-  console.log(context.searchByTitle);
+  // console.log(context.searchByTitle);
+
+  const renderView = () => {
+    if(context?.searchByTitle?.length > 0){
+      if(context?.filteredItems?.length > 0){
+        return (context?.filteredItems?.map(item => (<Card key={item.id} data={item}></Card>)))
+      }        
+      else{
+         return (<div className='flex gap-2'>We don´t have anything 
+           <FaceFrownIcon className='h-6 w-6  text-black cursor-pointer'></FaceFrownIcon>
+        </div>)
+      }
+    }else{
+      return (context.items?.map(item => (<Card key={item.id} data={item}></Card>)))
+
+    }
+
+  }
   
 
   return (
@@ -21,12 +39,8 @@ function Home() {
           onChange={(event) => context.setSearchByTitle(event.target.value)}  
         />
         <div className='grid gap-4 grid-cols-4 w-full max-w-screen-lg'>
-         {/* {
-          items?.map(() =>
-          { return <Card></Card>})
-        } */}
         {
-          context.items?.map(item => (<Card key={item.id} data={item}></Card>))
+         renderView()
         }
         </div>
         <ProductDetail></ProductDetail>
