@@ -2,6 +2,15 @@ import { XMarkIcon , CurrencyDollarIcon, TrashIcon } from '@heroicons/react/24/o
 
 const OrderCard = props  =>{
     const {id,title, imgUrl, price, handleDelete} = props
+    let renderXMarkIcon 
+
+    if(handleDelete){
+        renderXMarkIcon = 
+                <TrashIcon 
+                    className='h-6 w-6 text-black cursor-pointer'
+                    onClick={() => handleDelete(id)}
+                ></TrashIcon>
+    }
 
     return(
         <div className='flex justify-between items-center rounded-lg bg-white mb-3'>
@@ -11,15 +20,14 @@ const OrderCard = props  =>{
                 </figure>
                 <p className='text-sm font-light'>{title}</p>
             </div>
+           
+
             <div className='flex items-center gap-2'>
                 <div className='flex flex-row items-center gap-1'>
                     <CurrencyDollarIcon className='h-6 w-6 text-black cursor-pointer'></CurrencyDollarIcon>
                     <p className='text-lg font-medium'>{price}</p>
                 </div>
-                <TrashIcon 
-                    className='h-6 w-6 text-black cursor-pointer'
-                    onClick={() => handleDelete(id)}
-                ></TrashIcon>
+                 {renderXMarkIcon}
             </div>
         </div>
     )
