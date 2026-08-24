@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { XMarkIcon} from '@heroicons/react/24/solid'
+import { XMarkIcon} from '@heroicons/react/24/outline'
 import { ShoppingCartContext } from '../../Context'
 import './styles.css'
 

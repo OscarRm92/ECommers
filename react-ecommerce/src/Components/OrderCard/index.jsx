@@ -1,4 +1,4 @@
-import { XMarkIcon , CurrencyDollarIcon } from '@heroicons/react/24/solid'
+import { XMarkIcon , CurrencyDollarIcon, TrashIcon } from '@heroicons/react/24/outline'
 
 const OrderCard = props  =>{
     const {id,title, imgUrl, price, handleDelete} = props
@@ -16,10 +16,10 @@ const OrderCard = props  =>{
                     <CurrencyDollarIcon className='h-6 w-6 text-black cursor-pointer'></CurrencyDollarIcon>
                     <p className='text-lg font-medium'>{price}</p>
                 </div>
-                <XMarkIcon 
+                <TrashIcon 
                     className='h-6 w-6 text-black cursor-pointer'
                     onClick={() => handleDelete(id)}
-                ></XMarkIcon>
+                ></TrashIcon>
             </div>
         </div>
     )
